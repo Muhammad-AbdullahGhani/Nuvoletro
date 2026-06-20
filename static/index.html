@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuvoletro — Content Repurposing Pipeline</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="app-nav">
+      <a class="app-logo" href="/landing">Nuvoletro</a>
+      <a class="app-nav-link" href="/landing">About</a>
+    </nav>
+    <p class="badge">Whisper · RAG · Gemini · FastAPI</p>
+    <h1>Nuvoletro</h1>
+    <p class="tagline">YouTube URL or upload → transcribe → RAG-contextualized LinkedIn & Instagram posts.</p>
+    <p id="mode-pill" class="mode-pill">Checking…</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Repurpose content</h2>
+      <form id="upload-form">
+        <label>
+          YouTube URL
+          <input type="url" name="youtube_url" placeholder="https://www.youtube.com/watch?v=…" />
+        </label>
+        <label>
+          Niche (optional)
+          <input type="text" name="niche" placeholder="e.g. SaaS, dev tutorials, podcast" />
+        </label>
+        <label>
+          Language
+          <select name="language">
+            <option value="en" selected>English</option>
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+          </select>
+        </label>
+        <label>
+          Or upload video / audio
+          <input type="file" name="file" accept="video/*,audio/*,.mp4,.mov,.mkv,.webm,.mp3,.wav,.m4a" />
+        </label>
+        <p class="or">— or paste transcript —</p>
+        <label>
+          Transcript text
+          <textarea name="transcript" rows="5" placeholder="Paste script or transcript…"></textarea>
+        </label>
+        <button type="submit" id="submit-btn">Generate posts</button>
+      </form>
+      <p id="status" class="status" hidden></p>
+    </section>
+
+    <section id="results" class="card results" hidden>
+      <div class="results-header">
+        <h2>Your content kit</h2>
+        <div class="actions">
+          <a id="dl-srt" class="btn secondary" href="#">Download SRT</a>
+          <a id="dl-json" class="btn secondary" href="#">Download JSON</a>
+        </div>
+      </div>
+      <details open>
+        <summary>Transcript</summary>
+        <pre id="transcript-out"></pre>
+      </details>
+      <div class="platform-grid">
+        <article class="platform" id="linkedin-box"></article>
+        <article class="platform" id="instagram-box"></article>
+        <article class="platform" id="youtube-box"></article>
+      </div>
+      <details open>
+        <summary>Short clip suggestions</summary>
+        <ul id="clips-out"></ul>
+      </details>
+      <details id="rag-details" hidden>
+        <summary>RAG context used</summary>
+        <pre id="rag-out"></pre>
+      </details>
+      <details>
+        <summary>Captions (SRT preview)</summary>
+        <pre id="srt-out"></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>Parallel workers process jobs concurrently. Live mode needs OPENAI_API_KEY + GEMINI_API_KEY.</p>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

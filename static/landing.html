@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuvoletro — Automated content repurposing</title>
+  <meta name="description" content="Extract YouTube audio, transcribe with Whisper, contextualize with RAG + Gemini, and generate LinkedIn and Instagram posts automatically." />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/landing.css" />
+</head>
+<body>
+  <nav class="lp-nav">
+    <span class="lp-logo">Nuvoletro</span>
+    <div class="lp-nav-links">
+      <a href="#stack">Stack</a>
+      <a href="#how">How it works</a>
+      <a class="btn lp-cta-sm" href="/">Open app</a>
+    </div>
+  </nav>
+
+  <header class="lp-hero">
+    <p class="badge">Python · FastAPI · Whisper · Gemini · RAG · Chroma</p>
+    <h1>Turn YouTube videos into LinkedIn & Instagram posts</h1>
+    <p class="lp-sub">
+      Nuvoletro automates the full repurposing pipeline: extract audio from YouTube,
+      transcribe with OpenAI Whisper, retrieve platform playbooks via Chroma RAG,
+      and generate promotional posts with the Gemini API — no manual copy-paste workflow.
+    </p>
+    <div class="lp-hero-cta">
+      <a class="btn lp-cta" href="/">Try the pipeline</a>
+    </div>
+  </header>
+
+  <section class="lp-section" id="stack">
+    <h2>Architecture</h2>
+    <ul class="lp-grid">
+      <li><strong>yt-dlp</strong><span>Automated audio extraction from YouTube URLs.</span></li>
+      <li><strong>OpenAI Whisper</strong><span>Full transcription with segment timestamps.</span></li>
+      <li><strong>Chroma Vector DB</strong><span>RAG retrieval of LinkedIn/Instagram playbooks.</span></li>
+      <li><strong>Gemini API</strong><span>Context-aware post generation.</span></li>
+      <li><strong>FastAPI workers</strong><span>Parallel job pool for concurrent requests.</span></li>
+      <li><strong>ffmpeg</strong><span>Optional 9:16 clip export for Reels.</span></li>
+    </ul>
+  </section>
+
+  <section class="lp-section" id="how">
+    <h2>Pipeline</h2>
+    <div class="lp-steps">
+      <article class="lp-step">
+        <span class="lp-step-num">1</span>
+        <h3>Input</h3>
+        <p>YouTube URL, file upload, or pasted transcript.</p>
+      </article>
+      <article class="lp-step">
+        <span class="lp-step-num">2</span>
+        <h3>Transcribe</h3>
+        <p>Whisper processes 100% of audio input without manual steps.</p>
+      </article>
+      <article class="lp-step">
+        <span class="lp-step-num">3</span>
+        <h3>RAG + Generate</h3>
+        <p>Chroma retrieves platform context; Gemini writes LinkedIn and Instagram posts.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="lp-section lp-final">
+    <h2>Run the pipeline</h2>
+    <a class="btn lp-cta" href="/">Open Nuvoletro</a>
+  </section>
+
+  <footer>
+    <p>Nuvoletro — automated content repurposing for English-speaking creators.</p>
+  </footer>
+</body>
+</html>
