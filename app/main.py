@@ -94,7 +94,8 @@ async def create_job(
         )
     try:
         job = await submit_job(file, transcript, youtube_url, niche, language)
-        logger.info(f"Job created: {job.job_id} (source: {file.filename or youtube_url or 'transcript'})")
+        source_desc = (file.filename if file else None) or youtube_url or "transcript"
+        logger.info(f"Job created: {job.job_id} (source: {source_desc})")
         return job
     except Exception as exc:
         logger.error(f"Job creation failed: {str(exc)}", exc_info=True)
