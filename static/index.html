@@ -3,529 +3,642 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuvoletro — AI Content Repurposing Studio</title>
-  <meta name="description" content="Repurpose YouTube videos, media uploads, and transcripts into viral LinkedIn posts, Instagram Reels captions, YouTube SEO metadata, and 9:16 vertical clips with Whisper, RAG, and Gemini." />
+  <title>Nuvoletro — Content Transformation Engine</title>
+  <meta name="description" content="Transform one long-form video or audio file into platform-tailored LinkedIn thought leadership, Instagram Reels captions, and 9:16 vertical clips." />
+  
+  <!-- Distinctive Typography: Instrument Serif + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <!-- Ambient background glow effects -->
-  <div class="glow-sphere glow-sphere-1"></div>
-  <div class="glow-sphere glow-sphere-2"></div>
 
-  <!-- Top Navigation Header -->
-  <header class="app-header">
-    <div class="header-container">
-      <div class="brand-group">
-        <a href="/" class="brand-logo">
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">Nuvoletro</span>
-          <span class="logo-badge">STUDIO</span>
+  <!-- Top Editorial Header -->
+  <header class="studio-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <a href="/" class="brand-link">
+          <span class="brand-mark">⚡</span>
+          <span class="brand-name">Nuvoletro</span>
         </a>
+        <span class="brand-descriptor">Content Transformation Engine</span>
       </div>
 
-      <div class="system-status-container">
-        <div id="system-status-pill" class="status-pill checking">
-          <span class="status-indicator"></span>
-          <span id="status-pill-text">Checking System Status…</span>
-        </div>
+      <div class="system-status-indicator">
+        <span class="status-beacon" id="status-beacon"></span>
+        <span class="status-label" id="status-text">Connecting…</span>
       </div>
 
-      <nav class="nav-actions">
-        <a href="/landing" class="nav-link">About & Architecture</a>
-        <a href="/docs" target="_blank" class="nav-link">API Docs</a>
-        <a href="https://github.com/Muhammad-AbdullahGhani/Nuvoletro" target="_blank" class="nav-link github-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
+      <nav class="header-nav">
+        <a href="/landing" class="nav-item">How it Works</a>
+        <a href="/docs" target="_blank" class="nav-item">API Spec</a>
+        <a href="https://github.com/Muhammad-AbdullahGhani/Nuvoletro" target="_blank" class="nav-item github-btn">
           GitHub
         </a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Intro Bar -->
-  <section class="hero-banner">
-    <div class="banner-inner">
-      <div class="hero-badge-wrap">
-        <span class="hero-pill">🔥 Automated Multi-Platform Pipeline</span>
-      </div>
-      <h1 class="hero-title">Turn 1 Long Video into <span class="gradient-text">Viral Social Posts</span></h1>
-      <p class="hero-subtitle">
-        Whisper Audio Transcription · ChromaDB Strategy RAG · Gemini 2.0 Flash Generation · FFmpeg 9:16 Video Clips
-      </p>
-    </div>
-  </section>
-
-  <!-- Main Application Container -->
-  <main class="app-main-layout">
+  <main class="main-content">
     
-    <!-- Studio Input Section Card -->
-    <section class="studio-card main-input-card">
-      <div class="card-header">
-        <div class="header-titles">
-          <h2 class="card-title">1. Choose Content Source</h2>
-          <p class="card-subtitle">Select how you want to provide your video or transcript</p>
-        </div>
-        <div class="demo-quick-action">
-          <button type="button" id="load-sample-btn" class="btn btn-ghost btn-sm">
-            ✨ Try Sample Demo
-          </button>
-        </div>
+    <!-- Hero / Positioning Section -->
+    <section class="hero-section">
+      <div class="hero-inner">
+        <div class="hero-kicker">Multi-Platform Distribution</div>
+        <h1 class="hero-heading">
+          One long-form video.<br>
+          <em>Three platform-native assets.</em>
+        </h1>
+        <p class="hero-standfirst">
+          Nuvoletro transcribes speech with Whisper, queries platform copywriting playbooks in ChromaDB, and uses Gemini 2.0 to engineer distinct, high-dwell-time posts for LinkedIn and Instagram.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 1: VISUAL PIPELINE (What happens end-to-end) -->
+    <section class="pipeline-section" aria-label="Transformation Pipeline">
+      <div class="section-label-bar">
+        <span class="section-tag">The Architecture</span>
+        <h2 class="section-title">How Nuvoletro Transforms Media</h2>
       </div>
 
-      <!-- Interactive Input Method Tabs -->
-      <div class="source-tabs" role="tablist">
-        <button type="button" class="source-tab active" data-tab="youtube" role="tab" aria-selected="true">
-          <span class="tab-icon">📺</span>
-          <span class="tab-label">YouTube URL</span>
-        </button>
-        <button type="button" class="source-tab" data-tab="upload" role="tab" aria-selected="false">
-          <span class="tab-icon">📁</span>
-          <span class="tab-label">Upload Video/Audio</span>
-        </button>
-        <button type="button" class="source-tab" data-tab="transcript" role="tab" aria-selected="false">
-          <span class="tab-icon">📝</span>
-          <span class="tab-label">Paste Transcript</span>
-        </button>
+      <div class="pipeline-grid">
+        <!-- Stage 1 -->
+        <div class="pipeline-node">
+          <div class="node-meta">
+            <span class="node-num">01</span>
+            <span class="node-type">Input</span>
+          </div>
+          <div class="node-icon-box">📺</div>
+          <h3 class="node-title">Raw Media Ingest</h3>
+          <p class="node-desc">YouTube URL, video upload (MP4/MOV), audio (MP3/WAV), or pasted script notes.</p>
+          <div class="node-foot">yt-dlp stream extraction</div>
+        </div>
+
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+
+        <!-- Stage 2 -->
+        <div class="pipeline-node">
+          <div class="node-meta">
+            <span class="node-num">02</span>
+            <span class="node-type">Speech-to-Text</span>
+          </div>
+          <div class="node-icon-box">🎙️</div>
+          <h3 class="node-title">Whisper Transcription</h3>
+          <p class="node-desc">Generates millisecond-accurate timestamps, word segmentation, and raw audio transcript.</p>
+          <div class="node-foot">OpenAI Whisper Engine</div>
+        </div>
+
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+
+        <!-- Stage 3 -->
+        <div class="pipeline-node">
+          <div class="node-meta">
+            <span class="node-num">03</span>
+            <span class="node-type">Context & LLM</span>
+          </div>
+          <div class="node-icon-box">🧠</div>
+          <h3 class="node-title">RAG + Gemini 2.0</h3>
+          <p class="node-desc">ChromaDB retrieves viral copywriting playbooks; Gemini synthesizes platform-native copy.</p>
+          <div class="node-foot">Vector Store + Gemini 2.0 Flash</div>
+        </div>
+
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+
+        <!-- Stage 4 -->
+        <div class="pipeline-node">
+          <div class="node-meta">
+            <span class="node-num">04</span>
+            <span class="node-type">Output</span>
+          </div>
+          <div class="node-icon-box">⚡</div>
+          <h3 class="node-title">3 Tailored Assets</h3>
+          <p class="node-desc">LinkedIn thought leadership post, Instagram Reels caption, YouTube SEO, and 9:16 clips.</p>
+          <div class="node-foot">SRT + JSON + FFmpeg 9:16</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: REAL BEFORE / AFTER SHOWCASE -->
+    <section class="specimen-section" aria-label="Before and After Transformation">
+      <div class="section-label-bar">
+        <span class="section-tag">Concrete Example</span>
+        <h2 class="section-title">See the Transformation in Action</h2>
       </div>
 
-      <!-- Form Container -->
-      <form id="repurpose-form" class="studio-form">
-        
-        <!-- Tab Content: YouTube URL -->
-        <div class="tab-pane active" id="pane-youtube">
-          <div class="form-group">
-            <label for="youtube_url" class="field-label">
-              <span>YouTube Video or Shorts URL</span>
-              <span class="label-hint">Auto-extracted via yt-dlp stream downloader</span>
-            </label>
-            <div class="input-with-icon">
-              <span class="input-icon">🔗</span>
-              <input 
-                type="url" 
-                id="youtube_url" 
-                name="youtube_url" 
-                placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..." 
-                autocomplete="off"
-              />
+      <div class="specimen-container">
+        <!-- Before: Raw Source Input -->
+        <div class="specimen-pane source-pane">
+          <div class="pane-header">
+            <span class="pane-badge before">BEFORE · RAW INPUT</span>
+            <span class="pane-meta">YouTube Video / Audio Track</span>
+          </div>
+          <div class="source-content-box">
+            <div class="source-video-chip">
+              <span class="chip-icon">▶</span>
+              <div class="chip-info">
+                <strong>"Why naive caching destroys production backends at scale"</strong>
+                <span>Tech Talk · 18:42 duration · English</span>
+              </div>
             </div>
-            <div class="quick-samples-list">
-              <span class="quick-sample-tag" data-sample="https://www.youtube.com/watch?v=sample1" data-niche="AI & LLMs">Sample: AI Architecture</span>
-              <span class="quick-sample-tag" data-sample="https://www.youtube.com/watch?v=sample2" data-niche="SaaS Growth">Sample: SaaS Scaling</span>
+            <div class="raw-transcript-preview">
+              <span class="code-time">00:00</span> "Welcome back everyone. Today we are breaking down three critical caching mistakes..."<br><br>
+              <span class="code-time">00:14</span> "First mistake: naive TTLs. When all your keys expire at the same second, you trigger a cache stampede that overwhelms the database..."<br><br>
+              <span class="code-time">00:32</span> "Second: neglecting cache invalidation on write mutations..."
             </div>
           </div>
         </div>
 
-        <!-- Tab Content: Upload File -->
-        <div class="tab-pane" id="pane-upload">
-          <div class="form-group">
-            <label class="field-label">
-              <span>Upload Video or Audio Media</span>
-              <span class="label-hint">Supports MP4, MOV, MKV, WebM, MP3, WAV, M4A up to 500 MB</span>
-            </label>
-            
-            <div class="dropzone" id="file-dropzone">
-              <input 
-                type="file" 
-                id="file-input" 
-                name="file" 
-                accept="video/*,audio/*,.mp4,.mov,.mkv,.webm,.mp3,.wav,.m4a" 
-                class="file-input-hidden"
-              />
-              <div class="dropzone-content" id="dropzone-idle">
-                <div class="dropzone-icon">☁️</div>
-                <h4 class="dropzone-title">Drag & drop your media file here, or <span class="browse-link">browse</span></h4>
-                <p class="dropzone-formats">MP4, MOV, MKV, MP3, WAV (Max 500 MB)</p>
+        <!-- Transformation Bridge Graphic -->
+        <div class="transformation-bridge">
+          <div class="bridge-line"></div>
+          <div class="bridge-badge">Transformed via RAG + Gemini</div>
+          <div class="bridge-line"></div>
+        </div>
+
+        <!-- After: Platform-Tailored Posts Output -->
+        <div class="specimen-pane output-pane">
+          <div class="pane-header">
+            <span class="pane-badge after">AFTER · PLATFORM-TAILORED OUTPUTS</span>
+            <div class="specimen-tabs" role="tablist">
+              <button type="button" class="specimen-tab active" data-specimen="li">LinkedIn Post</button>
+              <button type="button" class="specimen-tab" data-specimen="ig">Instagram Reel</button>
+              <button type="button" class="specimen-tab" data-specimen="yt">YouTube SEO</button>
+            </div>
+          </div>
+
+          <!-- Specimen: LinkedIn -->
+          <div class="specimen-view active" id="specimen-li">
+            <div class="platform-specimen linkedin-theme">
+              <div class="specimen-author-bar">
+                <div class="specimen-avatar linkedin-blue">in</div>
+                <div>
+                  <strong>Software Architecture Insights</strong>
+                  <span>Engineered for feed dwell-time & professional discussion</span>
+                </div>
               </div>
-              <div class="dropzone-file-preview" id="dropzone-preview" style="display: none;">
-                <div class="file-info-box">
-                  <span class="file-type-icon">🎬</span>
-                  <div class="file-meta">
-                    <span class="file-name" id="preview-file-name">filename.mp4</span>
-                    <span class="file-size" id="preview-file-size">24.5 MB</span>
+              <p class="specimen-text">
+                Most backend outages during traffic surges aren't caused by slow databases.<br><br>
+                They're caused by <strong>naive caching strategies</strong>.<br><br>
+                Here are 3 cache design rules every engineer should implement before scaling:<br><br>
+                1. <strong>Add jitter to your TTLs</strong> — Never expire keys synchronously. Randomizing expiration by ±10% prevents catastrophic cache stampedes.<br>
+                2. <strong>Implement write-through invalidation</strong> — Don't rely on eventual expiration for state mutations.<br>
+                3. <strong>Use circuit breakers on cache misses</strong> — Protect your origin database from stampedes.<br><br>
+                What's your team's policy on cache invalidation? Drop your thoughts below. 👇
+              </p>
+              <div class="specimen-tags">
+                <span>#systemdesign</span>
+                <span>#backendengineering</span>
+                <span>#softwarearchitecture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specimen: Instagram -->
+          <div class="specimen-view" id="specimen-ig">
+            <div class="platform-specimen instagram-theme">
+              <div class="specimen-author-bar">
+                <div class="specimen-avatar instagram-berry">IG</div>
+                <div>
+                  <strong>Reels 3-Second Hook & Caption</strong>
+                  <span>Engineered for immediate thumb-stopping curiosity</span>
+                </div>
+              </div>
+              <div class="reel-hook-sticker">⚡ 3-SECOND ON-SCREEN HOOK: "Stop setting identical TTLs on your cache."</div>
+              <p class="specimen-text">
+                Here's why your database crashes every Monday at 9 AM 👇<br><br>
+                When all your cached keys expire at the exact same second, thousands of requests slam your origin database at once. That's a cache stampede.<br><br>
+                Save this post for your next architecture review! 📌
+              </p>
+              <div class="specimen-tags">
+                <span>#codingtips</span>
+                <span>#developerlife</span>
+                <span>#techtips</span>
+                <span>#softwareengineer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specimen: YouTube -->
+          <div class="specimen-view" id="specimen-yt">
+            <div class="platform-specimen youtube-theme">
+              <div class="specimen-author-bar">
+                <div class="specimen-avatar youtube-red">YT</div>
+                <div>
+                  <strong>YouTube SEO Metadata & Timestamps</strong>
+                  <span>Optimized for CTR, search ranking, and retention</span>
+                </div>
+              </div>
+              <div class="yt-specimen-title">3 Caching Mistakes That Break Production Backends (And How to Fix Them)</div>
+              <p class="specimen-text">
+                In this video, we break down why naive caching fails under high load and how to implement jitter, write-through invalidation, and circuit breakers.<br><br>
+                ⏱️ Chapters:<br>
+                0:00 - The Cache Stampede Problem<br>
+                0:14 - Mistake 1: Fixed TTL Expirations<br>
+                0:32 - Mistake 2: Missing Write-Through Invalidation<br>
+                1:15 - Practical Code Architecture
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE REPURPOSING WORKBENCH (Input Form) -->
+    <section class="workbench-section" id="studio-workbench">
+      <div class="section-label-bar">
+        <span class="section-tag">Workbench</span>
+        <h2 class="section-title">Run Your Own Repurposing Job</h2>
+      </div>
+
+      <div class="workbench-card">
+        <!-- Input Method Toggle Tabs -->
+        <div class="input-mode-tabs" role="tablist">
+          <button type="button" class="mode-tab active" data-tab="youtube">
+            <span class="tab-glyph">▶</span>
+            <span>YouTube URL</span>
+          </button>
+          <button type="button" class="mode-tab" data-tab="upload">
+            <span class="tab-glyph">▲</span>
+            <span>Upload Video / Audio</span>
+          </button>
+          <button type="button" class="mode-tab" data-tab="transcript">
+            <span class="tab-glyph">≡</span>
+            <span>Paste Transcript</span>
+          </button>
+        </div>
+
+        <form id="repurpose-form" class="workbench-form">
+          
+          <!-- YouTube Input Pane -->
+          <div class="form-pane active" id="pane-youtube">
+            <div class="field-block">
+              <label for="youtube_url" class="field-title">
+                YouTube Video or Shorts URL
+                <span class="field-hint">Extracts audio directly via yt-dlp</span>
+              </label>
+              <div class="text-input-wrap">
+                <input 
+                  type="url" 
+                  id="youtube_url" 
+                  name="youtube_url" 
+                  placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..." 
+                  autocomplete="off"
+                />
+              </div>
+              <div class="quick-links-row">
+                <span class="quick-label">Load test link:</span>
+                <button type="button" class="quick-preset-btn" data-url="https://www.youtube.com/watch?v=d_QVLD66Uq0" data-niche="AI Engineering">AI Architecture Talk</button>
+                <button type="button" class="quick-preset-btn" data-url="https://www.youtube.com/watch?v=0k1Pq6x4-Zk" data-niche="SaaS Growth">SaaS Growth Playbook</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upload Input Pane -->
+          <div class="form-pane" id="pane-upload">
+            <div class="field-block">
+              <label class="field-title">
+                Upload Media File
+                <span class="field-hint">MP4, MOV, MKV, MP3, WAV up to 500 MB</span>
+              </label>
+              <div class="upload-dropzone" id="file-dropzone">
+                <input 
+                  type="file" 
+                  id="file-input" 
+                  name="file" 
+                  accept="video/*,audio/*,.mp4,.mov,.mkv,.webm,.mp3,.wav,.m4a" 
+                  class="file-hidden-input"
+                />
+                <div class="dropzone-idle-state" id="dropzone-idle">
+                  <div class="dropzone-symbol">📁</div>
+                  <div class="dropzone-primary-text">Drag and drop audio/video file here, or <span class="action-underline">browse files</span></div>
+                  <div class="dropzone-secondary-text">FFmpeg extracts audio and enables 9:16 vertical video clipping</div>
+                </div>
+                <div class="dropzone-active-state" id="dropzone-preview" style="display: none;">
+                  <div class="staged-file-card">
+                    <span class="staged-file-icon">🎬</span>
+                    <div class="staged-file-meta">
+                      <strong id="preview-file-name">filename.mp4</strong>
+                      <span id="preview-file-size">14.2 MB</span>
+                    </div>
+                    <button type="button" id="remove-file-btn" class="staged-file-remove" title="Remove file">✕</button>
                   </div>
-                  <button type="button" id="remove-file-btn" class="btn-icon-remove" title="Remove file">✕</button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Tab Content: Paste Transcript -->
-        <div class="tab-pane" id="pane-transcript">
-          <div class="form-group">
-            <div class="label-row">
-              <label for="transcript-text" class="field-label">
-                <span>Script or Transcript Text</span>
-                <span class="label-hint">Generates full platform kit and segmented subtitle timestamps</span>
+          <!-- Transcript Input Pane -->
+          <div class="form-pane" id="pane-transcript">
+            <div class="field-block">
+              <div class="field-title-row">
+                <label for="transcript-text" class="field-title">
+                  Paste Script or Raw Text
+                  <span class="field-hint">Segmented into subtitle timecodes automatically</span>
+                </label>
+                <span class="char-counter" id="transcript-word-count">0 words</span>
+              </div>
+              <textarea 
+                id="transcript-text" 
+                name="transcript" 
+                rows="5" 
+                placeholder="Paste video speech, talk script, or lecture notes here..."
+              ></textarea>
+              <div class="quick-links-row">
+                <span class="quick-label">Insert sample:</span>
+                <button type="button" class="quick-preset-btn" id="insert-tech-sample">AI Engineering Script</button>
+                <button type="button" class="quick-preset-btn" id="insert-saas-sample">Content Repurposing Playbook</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Configuration Controls: Niche & Language -->
+          <div class="controls-row">
+            <div class="control-col">
+              <label for="niche" class="field-title">
+                Topic / Target Niche
+                <span class="field-hint">Guides Chroma RAG playbook retrieval</span>
               </label>
-              <span class="word-counter" id="transcript-word-count">0 words</span>
+              <input 
+                type="text" 
+                id="niche" 
+                name="niche" 
+                placeholder="e.g. AI Engineering, SaaS, Dev Tutorials, Podcasting" 
+              />
+              <div class="niche-tag-row">
+                <button type="button" class="niche-tag" data-val="AI & Tech">AI & Tech</button>
+                <button type="button" class="niche-tag" data-val="SaaS & Startups">SaaS & Startups</button>
+                <button type="button" class="niche-tag" data-val="Marketing & Growth">Marketing</button>
+                <button type="button" class="niche-tag" data-val="Podcasting">Podcasting</button>
+              </div>
             </div>
-            <textarea 
-              id="transcript-text" 
-              name="transcript" 
-              rows="6" 
-              placeholder="Paste your video transcript, speech script, or lecture notes here…"
-            ></textarea>
-            <div class="transcript-presets">
-              <span class="preset-label">Insert sample script:</span>
-              <button type="button" class="preset-btn" id="preset-tech-btn">⚡ AI Engineering Tutorial</button>
-              <button type="button" class="preset-btn" id="preset-marketing-btn">📈 SaaS Growth Secrets</button>
+
+            <div class="control-col">
+              <label for="language" class="field-title">
+                Language
+                <span class="field-hint">Whisper & Gemini output</span>
+              </label>
+              <div class="custom-select-wrap">
+                <select id="language" name="language">
+                  <option value="en" selected>English (Global)</option>
+                  <option value="en-US">English (US)</option>
+                  <option value="en-GB">English (UK)</option>
+                  <option value="es">Spanish (Español)</option>
+                  <option value="fr">French (Français)</option>
+                  <option value="de">German (Deutsch)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit CTA Button -->
+          <div class="form-submit-row">
+            <button type="submit" id="submit-btn" class="engine-submit-btn">
+              <span class="btn-icon-flash">⚡</span>
+              <span id="submit-btn-text">Transform Media Into Content Kit</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Live Execution Stepper (Active during job processing) -->
+        <div id="execution-tracker" class="execution-tracker" style="display: none;">
+          <div class="tracker-head">
+            <div class="tracker-status-group">
+              <div class="pulse-ring"></div>
+              <div>
+                <strong class="tracker-title" id="tracker-title">Executing Transformation Pipeline…</strong>
+                <span class="tracker-subtitle" id="tracker-desc">Parallel worker pool is processing your media</span>
+              </div>
+            </div>
+            <span class="tracker-clock" id="tracker-timer">00:00</span>
+          </div>
+
+          <div class="tracker-stepper">
+            <div class="track-step" id="track-ingest">
+              <span class="step-badge">1</span>
+              <div class="step-text">
+                <strong>Ingest</strong>
+                <span class="step-note">Extracting audio</span>
+              </div>
+            </div>
+            <div class="track-line"></div>
+            <div class="track-step" id="track-transcribe">
+              <span class="step-badge">2</span>
+              <div class="step-text">
+                <strong>Whisper STT</strong>
+                <span class="step-note">Generating timestamps</span>
+              </div>
+            </div>
+            <div class="track-line"></div>
+            <div class="track-step" id="track-rag">
+              <span class="step-badge">3</span>
+              <div class="step-text">
+                <strong>Chroma RAG</strong>
+                <span class="step-note">Matching playbooks</span>
+              </div>
+            </div>
+            <div class="track-line"></div>
+            <div class="track-step" id="track-generate">
+              <span class="step-badge">4</span>
+              <div class="step-text">
+                <strong>Gemini Synthesis</strong>
+                <span class="step-note">Generating posts</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Target Configuration Row -->
-        <div class="config-grid">
-          <div class="config-item">
-            <label for="niche" class="field-label">
-              <span>Target Topic / Niche</span>
-              <span class="label-hint">Guides RAG retrieval & Gemini tone</span>
-            </label>
-            <input 
-              type="text" 
-              id="niche" 
-              name="niche" 
-              placeholder="e.g. AI Engineering, SaaS, Dev Tutorials, Podcasting" 
-            />
-            <div class="niche-chips">
-              <button type="button" class="niche-chip" data-val="AI & Tech">💻 AI & Tech</button>
-              <button type="button" class="niche-chip" data-val="SaaS & Startups">🚀 SaaS & Startups</button>
-              <button type="button" class="niche-chip" data-val="Marketing & Growth">📈 Marketing</button>
-              <button type="button" class="niche-chip" data-val="Podcasting">🎙️ Podcast</button>
-            </div>
-          </div>
-
-          <div class="config-item">
-            <label for="language" class="field-label">
-              <span>Output Language</span>
-              <span class="label-hint">Whisper transcription & copy language</span>
-            </label>
-            <div class="select-wrapper">
-              <select id="language" name="language">
-                <option value="en" selected>🇺🇸 English (Global)</option>
-                <option value="en-US">🇺🇸 English (US)</option>
-                <option value="en-GB">🇬🇧 English (UK)</option>
-                <option value="es">🇪🇸 Spanish (Español)</option>
-                <option value="fr">🇫🇷 French (Français)</option>
-                <option value="de">🇩🇪 German (Deutsch)</option>
-                <option value="pt">🇧🇷 Portuguese (Português)</option>
-              </select>
-            </div>
-          </div>
+        <!-- Error Notification Banner -->
+        <div id="error-banner" class="error-banner" style="display: none;">
+          <span class="error-glyph">⚠</span>
+          <span id="error-message-text" class="error-msg">Job submission failed.</span>
         </div>
-
-        <!-- Submit Button Section -->
-        <div class="form-actions">
-          <button type="submit" id="submit-btn" class="btn btn-primary btn-hero">
-            <span class="btn-glow"></span>
-            <span class="btn-content">
-              <span class="btn-icon">🚀</span>
-              <span id="submit-btn-text">Generate Content Kit</span>
-            </span>
-          </button>
-        </div>
-      </form>
-
-      <!-- Interactive Processing Stepper & Status Banner -->
-      <div id="pipeline-progress" class="pipeline-progress-card" style="display: none;">
-        <div class="progress-header">
-          <div class="progress-title-wrap">
-            <div class="pulsing-spinner"></div>
-            <div>
-              <h4 class="progress-title" id="pipeline-title">Repurposing Content…</h4>
-              <p class="progress-subtitle" id="pipeline-desc">Parallel workers are executing the pipeline</p>
-            </div>
-          </div>
-          <div class="progress-timer" id="pipeline-timer">00:00</div>
-        </div>
-
-        <div class="pipeline-stepper">
-          <div class="step-item" id="step-ingest">
-            <div class="step-circle">1</div>
-            <div class="step-info">
-              <span class="step-name">Ingest & Audio</span>
-              <span class="step-status">Pending</span>
-            </div>
-          </div>
-          <div class="step-connector"></div>
-          <div class="step-item" id="step-transcribe">
-            <div class="step-circle">2</div>
-            <div class="step-info">
-              <span class="step-name">Whisper STT</span>
-              <span class="step-status">Pending</span>
-            </div>
-          </div>
-          <div class="step-connector"></div>
-          <div class="step-item" id="step-rag">
-            <div class="step-circle">3</div>
-            <div class="step-info">
-              <span class="step-name">Chroma RAG</span>
-              <span class="step-status">Pending</span>
-            </div>
-          </div>
-          <div class="step-connector"></div>
-          <div class="step-item" id="step-generate">
-            <div class="step-circle">4</div>
-            <div class="step-info">
-              <span class="step-name">Gemini Synthesis</span>
-              <span class="step-status">Pending</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Error Toast Box -->
-      <div id="error-box" class="error-banner" style="display: none;">
-        <span class="error-icon">⚠️</span>
-        <span id="error-message" class="error-text">An error occurred during submission.</span>
       </div>
     </section>
 
-    <!-- Results Section Hub (Hidden initially) -->
-    <section id="results-hub" class="results-hub-section" style="display: none;">
-      
-      <!-- Results Overview Topbar -->
-      <div class="results-topbar studio-card">
-        <div class="results-meta">
-          <div class="meta-badge-row">
-            <span class="status-tag success">✓ Ready to Publish</span>
-            <span id="res-mode-tag" class="status-tag mode">Live Model</span>
-            <span id="res-niche-tag" class="status-tag niche">AI Tech</span>
-          </div>
-          <h2 class="results-heading" id="res-job-title">Your Generated Content Kit</h2>
-          <p class="results-subtext" id="res-source-meta">Generated from source media</p>
-        </div>
+    <!-- SECTION 4: GENERATED CONTENT HUB (Output Cards) -->
+    <section id="results-hub" class="results-hub" style="display: none;">
+      <div class="section-label-bar">
+        <span class="section-tag success-tag">✓ Generation Complete</span>
+        <h2 class="section-title" id="res-heading">Your Multi-Platform Content Kit</h2>
+      </div>
 
-        <div class="results-download-actions">
-          <a id="dl-srt-btn" class="btn btn-outline" href="#" download>
+      <!-- Action Bar (Downloads & Copy All) -->
+      <div class="results-action-bar">
+        <div class="results-meta-chips">
+          <span class="meta-chip" id="res-mode-chip">Live Model</span>
+          <span class="meta-chip" id="res-niche-chip">AI Architecture</span>
+          <span class="meta-chip" id="res-source-chip">Source: Raw Input</span>
+        </div>
+        <div class="results-export-btns">
+          <a id="dl-srt-btn" class="btn-export-flat" href="#" download>
             <span>📜</span> Download .SRT
           </a>
-          <a id="dl-json-btn" class="btn btn-outline" href="#" download>
+          <a id="dl-json-btn" class="btn-export-flat" href="#" download>
             <span>📦</span> Download JSON Kit
           </a>
-          <button type="button" id="copy-all-btn" class="btn btn-secondary">
+          <button type="button" id="copy-all-btn" class="btn-export-flat accent-btn">
             <span>📋</span> Copy All Posts
           </button>
         </div>
       </div>
 
-      <!-- Studio Workspaces: Platforms and Clips Grid -->
-      <div class="studio-grid">
-
-        <!-- Left Column: Platform Tabs & Live Previews -->
-        <div class="platforms-column">
-          <div class="platform-tabs-nav">
-            <button type="button" class="platform-tab active" data-platform="linkedin">
-              <span class="p-tab-icon">💼</span>
-              <span>LinkedIn</span>
-            </button>
-            <button type="button" class="platform-tab" data-platform="instagram">
-              <span class="p-tab-icon">📸</span>
-              <span>Instagram</span>
-            </button>
-            <button type="button" class="platform-tab" data-platform="youtube">
-              <span class="p-tab-icon">🎥</span>
-              <span>YouTube</span>
-            </button>
-            <button type="button" class="platform-tab" data-platform="transcript">
-              <span class="p-tab-icon">📝</span>
-              <span>Transcript & SRT</span>
-            </button>
-            <button type="button" class="platform-tab" data-platform="rag">
-              <span class="p-tab-icon">🧠</span>
-              <span>RAG Insights</span>
-            </button>
-          </div>
-
-          <!-- Platform Panel: LinkedIn -->
-          <div class="platform-panel active studio-card" id="panel-linkedin">
-            <div class="panel-header">
-              <div class="panel-title-group">
-                <div class="platform-avatar linkedin">in</div>
-                <div>
-                  <h3 class="panel-title">LinkedIn Thought Leadership</h3>
-                  <p class="panel-subtitle">Formatted for high feed dwell-time and comments</p>
-                </div>
-              </div>
-              <button type="button" class="btn btn-copy" data-copy-target="linkedin-post-content">
-                <span>📋</span> Copy Post
-              </button>
-            </div>
-
-            <div class="post-preview-card">
-              <div class="post-preview-header">
-                <div class="mock-author">
-                  <div class="mock-avatar"></div>
-                  <div class="mock-details">
-                    <span class="mock-name">Content Creator</span>
-                    <span class="mock-headline">Thought Leader · Just now · 🌐</span>
-                  </div>
-                </div>
-              </div>
-              <div class="post-body-container">
-                <h4 id="linkedin-title" class="post-headline"></h4>
-                <div id="linkedin-description" class="post-text-body"></div>
-                <div id="linkedin-hashtags" class="post-hashtags-cloud"></div>
-              </div>
-            </div>
-            <textarea id="linkedin-post-content" class="sr-only" aria-hidden="true"></textarea>
-          </div>
-
-          <!-- Platform Panel: Instagram -->
-          <div class="platform-panel studio-card" id="panel-instagram">
-            <div class="panel-header">
-              <div class="panel-title-group">
-                <div class="platform-avatar instagram">IG</div>
-                <div>
-                  <h3 class="panel-title">Instagram Reels Caption</h3>
-                  <p class="panel-subtitle">3-second attention hook and engagement CTA</p>
-                </div>
-              </div>
-              <button type="button" class="btn btn-copy" data-copy-target="instagram-post-content">
-                <span>📋</span> Copy Caption
-              </button>
-            </div>
-
-            <div class="post-preview-card ig-card">
-              <div class="ig-hook-badge">⚡ 3-SECOND REEL HOOK</div>
-              <h4 id="instagram-title" class="ig-hook-text"></h4>
-              <div id="instagram-description" class="post-text-body"></div>
-              <div id="instagram-hashtags" class="post-hashtags-cloud"></div>
-            </div>
-            <textarea id="instagram-post-content" class="sr-only" aria-hidden="true"></textarea>
-          </div>
-
-          <!-- Platform Panel: YouTube -->
-          <div class="platform-panel studio-card" id="panel-youtube">
-            <div class="panel-header">
-              <div class="panel-title-group">
-                <div class="platform-avatar youtube">YT</div>
-                <div>
-                  <h3 class="panel-title">YouTube SEO Optimization</h3>
-                  <p class="panel-subtitle">High CTR title, chaptered description, and tags</p>
-                </div>
-              </div>
-              <button type="button" class="btn btn-copy" data-copy-target="youtube-post-content">
-                <span>📋</span> Copy All
-              </button>
-            </div>
-
-            <div class="yt-box-section">
-              <label class="section-micro-label">SEO TITLE (<span id="yt-title-count">0</span>/70 chars)</label>
-              <div class="yt-title-box">
-                <h4 id="youtube-title" class="yt-title-text"></h4>
-                <button type="button" class="btn btn-copy-sm" data-copy-target="youtube-title">Copy Title</button>
-              </div>
-            </div>
-
-            <div class="yt-box-section">
-              <label class="section-micro-label">CHAPTERED DESCRIPTION & TIMESTAMPS</label>
-              <div id="youtube-description" class="yt-desc-box"></div>
-            </div>
-
-            <div class="yt-box-section">
-              <label class="section-micro-label">SEARCH TAGS & HASHTAGS</label>
-              <div id="youtube-tags" class="post-hashtags-cloud"></div>
-            </div>
-            <textarea id="youtube-post-content" class="sr-only" aria-hidden="true"></textarea>
-          </div>
-
-          <!-- Platform Panel: Transcript & Subtitles -->
-          <div class="platform-panel studio-card" id="panel-transcript">
-            <div class="panel-header">
-              <div class="panel-title-group">
-                <div class="platform-avatar transcript">STT</div>
-                <div>
-                  <h3 class="panel-title">Full Transcript & Subtitles</h3>
-                  <p class="panel-subtitle">Segmented timecodes and SRT preview</p>
-                </div>
-              </div>
-              <div class="transcript-actions">
-                <button type="button" class="btn btn-copy" data-copy-target="transcript-raw-text">
-                  <span>📋</span> Copy Text
-                </button>
-              </div>
-            </div>
-
-            <div class="transcript-subtabs">
-              <button type="button" class="subtab-btn active" data-subtab="formatted">Segmented View</button>
-              <button type="button" class="subtab-btn" data-subtab="raw">Raw SRT</button>
-            </div>
-
-            <div class="subtab-content active" id="subtab-formatted-view">
-              <div id="transcript-segments-list" class="segments-timeline"></div>
-            </div>
-
-            <div class="subtab-content" id="subtab-raw-view">
-              <pre id="srt-raw-preview" class="code-preview"></pre>
-            </div>
-            <textarea id="transcript-raw-text" class="sr-only" aria-hidden="true"></textarea>
-          </div>
-
-          <!-- Platform Panel: RAG Insights -->
-          <div class="platform-panel studio-card" id="panel-rag">
-            <div class="panel-header">
-              <div class="panel-title-group">
-                <div class="platform-avatar rag">RAG</div>
-                <div>
-                  <h3 class="panel-title">ChromaDB Vector Retrieval</h3>
-                  <p class="panel-subtitle">Strategy playbooks matched to this video</p>
-                </div>
-              </div>
-            </div>
-            <div id="rag-insights-container" class="rag-chunks-list">
-              <p class="empty-state-text">No custom RAG chunks retrieved for this job.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Viral Clips & Short-form Slicer -->
-        <div class="clips-column">
-          <div class="studio-card clips-card">
-            <div class="panel-header">
+      <!-- Platform-Branded Output Grid -->
+      <div class="output-cards-grid">
+        
+        <!-- CARD 1: LINKEDIN BRANDED CARD -->
+        <article class="platform-output-card linkedin-card">
+          <header class="card-brand-header">
+            <div class="brand-left">
+              <div class="brand-avatar-box in-box">in</div>
               <div>
-                <h3 class="panel-title">🎬 Viral Clip Suggestions</h3>
-                <p class="panel-subtitle">Scored by hook strength & pacing</p>
+                <h3 class="card-platform-name">LinkedIn Thought Leadership</h3>
+                <span class="card-platform-sub">Optimized for feed dwell-time, bold hook, and discussion CTA</span>
               </div>
-              <span class="clip-count-pill" id="clip-count-badge">0 clips</span>
+            </div>
+            <button type="button" class="btn-copy-card" data-target="linkedin-payload">
+              <span>📋</span> Copy Post
+            </button>
+          </header>
+
+          <div class="card-body-well">
+            <h4 class="card-post-title" id="out-linkedin-title"></h4>
+            <div class="card-post-text" id="out-linkedin-desc"></div>
+            <div class="card-post-hashtags" id="out-linkedin-tags"></div>
+          </div>
+          <textarea id="linkedin-payload" class="sr-only" aria-hidden="true"></textarea>
+        </article>
+
+        <!-- CARD 2: INSTAGRAM BRANDED CARD -->
+        <article class="platform-output-card instagram-card">
+          <header class="card-brand-header">
+            <div class="brand-left">
+              <div class="brand-avatar-box ig-box">IG</div>
+              <div>
+                <h3 class="card-platform-name">Instagram Reels Caption</h3>
+                <span class="card-platform-sub">3-second visual attention hook and curated hashtag cluster</span>
+              </div>
+            </div>
+            <button type="button" class="btn-copy-card" data-target="instagram-payload">
+              <span>📋</span> Copy Caption
+            </button>
+          </header>
+
+          <div class="card-body-well">
+            <div class="reels-hook-callout">
+              <span class="hook-label">3-SECOND REEL HOOK</span>
+              <h4 class="hook-text" id="out-instagram-title"></h4>
+            </div>
+            <div class="card-post-text" id="out-instagram-desc"></div>
+            <div class="card-post-hashtags" id="out-instagram-tags"></div>
+          </div>
+          <textarea id="instagram-payload" class="sr-only" aria-hidden="true"></textarea>
+        </article>
+
+        <!-- CARD 3: YOUTUBE BRANDED CARD -->
+        <article class="platform-output-card youtube-card">
+          <header class="card-brand-header">
+            <div class="brand-left">
+              <div class="brand-avatar-box yt-box">YT</div>
+              <div>
+                <h3 class="card-platform-name">YouTube SEO & Chapters</h3>
+                <span class="card-platform-sub">High CTR title (<70 chars), chaptered description, and search tags</span>
+              </div>
+            </div>
+            <button type="button" class="btn-copy-card" data-target="youtube-payload">
+              <span>📋</span> Copy All
+            </button>
+          </header>
+
+          <div class="card-body-well">
+            <div class="yt-meta-row">
+              <label class="well-mini-label">SEO TITLE (<span id="out-yt-count">0</span>/70 chars)</label>
+              <div class="yt-title-display">
+                <span id="out-youtube-title"></span>
+              </div>
             </div>
 
-            <div class="clip-export-capability-banner" id="clip-capability-note">
-              <span>💡 Video uploaded? Click below to export vertical 9:16 reels directly.</span>
+            <div class="yt-meta-row">
+              <label class="well-mini-label">CHAPTERED DESCRIPTION & TIMESTAMPS</label>
+              <div class="yt-desc-display" id="out-youtube-desc"></div>
             </div>
 
-            <div id="clips-list-container" class="clips-container">
+            <div class="yt-meta-row">
+              <label class="well-mini-label">SEARCH TAGS</label>
+              <div class="card-post-hashtags" id="out-youtube-tags"></div>
+            </div>
+          </div>
+          <textarea id="youtube-payload" class="sr-only" aria-hidden="true"></textarea>
+        </article>
+
+        <!-- CARD 4: VIRAL SHORT CLIPS & 9:16 EXPORT -->
+        <article class="platform-output-card clips-card">
+          <header class="card-brand-header">
+            <div class="brand-left">
+              <div class="brand-avatar-box clip-box">✂</div>
+              <div>
+                <h3 class="card-platform-name">Viral Short-Form Clip Cuts</h3>
+                <span class="card-platform-sub">Algorithmic hook detection + FFmpeg 9:16 vertical crop</span>
+              </div>
+            </div>
+            <span class="clips-count-badge" id="out-clips-badge">0 clips</span>
+          </header>
+
+          <div class="card-body-well">
+            <div class="clips-flow-list" id="out-clips-list">
               <!-- Dynamically populated -->
             </div>
           </div>
+        </article>
 
-          <!-- Repurpose another action card -->
-          <div class="studio-card new-job-card">
-            <h4>Ready to repurpose another video?</h4>
-            <p>Paste a new link or upload another file to start fresh.</p>
-            <button type="button" id="start-new-job-btn" class="btn btn-primary btn-block">
-              ⚡ Repurpose Another Video
+        <!-- CARD 5: SEGMENTED TRANSCRIPT & SRT -->
+        <article class="platform-output-card transcript-card">
+          <header class="card-brand-header">
+            <div class="brand-left">
+              <div class="brand-avatar-box stt-box">STT</div>
+              <div>
+                <h3 class="card-platform-name">Whisper Segmented Transcript</h3>
+                <span class="card-platform-sub">Word timecodes synchronized for subtitles</span>
+              </div>
+            </div>
+            <button type="button" class="btn-copy-card" data-target="transcript-payload">
+              <span>📋</span> Copy Text
             </button>
+          </header>
+
+          <div class="card-body-well">
+            <div class="transcript-timeline-box" id="out-transcript-timeline"></div>
           </div>
-        </div>
+          <textarea id="transcript-payload" class="sr-only" aria-hidden="true"></textarea>
+        </article>
+
+      </div>
+
+      <!-- Start New Repurpose Reset Bar -->
+      <div class="reset-workbench-bar">
+        <p>Want to transform another video?</p>
+        <button type="button" id="reset-workbench-btn" class="btn-reset-workbench">
+          <span>⚡</span> Repurpose Another Media File
+        </button>
       </div>
     </section>
 
   </main>
 
-  <!-- Notification Toast Container -->
-  <div id="toast-container" class="toast-container"></div>
+  <!-- Toast Notification System -->
+  <div id="toast-shelf" class="toast-shelf"></div>
 
-  <!-- Footer -->
-  <footer class="app-footer">
+  <!-- Editorial Footer -->
+  <footer class="studio-footer">
     <div class="footer-inner">
-      <p class="footer-text">
-        <strong>Nuvoletro</strong> — Automated AI Content Engine with Whisper, Chroma Vector DB, Gemini 2.0 Flash & FFmpeg.
-      </p>
+      <div class="footer-brand">
+        <strong>Nuvoletro</strong> · Automated Content Transformation
+      </div>
+      <div class="footer-tech">
+        Powered by OpenAI Whisper · ChromaDB Vector RAG · Google Gemini 2.0 Flash · FFmpeg
+      </div>
     </div>
   </footer>
 
