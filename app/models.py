@@ -45,6 +45,7 @@ class ContentKit(BaseModel):
 class JobResult(BaseModel):
     job_id: str
     status: JobStatus
+    stage: str = "pending"
     filename: str | None = None
     source_media: str | None = None
     youtube_url: str | None = None

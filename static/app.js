@@ -273,9 +273,9 @@ function stopTimer() {
   if (timerHandle) clearInterval(timerHandle);
 }
 
-function setStep(stepName) {
+function setStep(stepName, detailMsg = "") {
   const steps = ["ingest", "transcribe", "rag", "generate"];
-  const targetIdx = steps.indexOf(stepName);
+  const targetIdx = stepName === "completed" ? 4 : steps.indexOf(stepName);
 
   steps.forEach((s, idx) => {
     const el = document.getElementById(`track-${s}`);
@@ -288,11 +288,15 @@ function setStep(stepName) {
       el.className = "track-step";
     }
   });
+
+  if (trackerDesc && detailMsg) {
+    trackerDesc.textContent = detailMsg;
+  }
 }
 
 // 7. Polling Worker Pipeline
 async function pollJob(jobId) {
-  const maxAttempts = 120;
+  const maxAttempts = 180;
 
   for (let i = 0; i < maxAttempts; i++) {
     const res = await fetch(`/api/jobs/${jobId}`);
@@ -300,16 +304,21 @@ async function pollJob(jobId) {
     const job = await res.json();
 
     if (job.status === "processing") {
-      if (i === 1) setStep("transcribe");
-      if (i === 4) setStep("rag");
-      if (i === 7) setStep("generate");
+      const stage = job.stage || "ingesting";
+      if (stage === "ingesting") {
+        setStep("ingest", "Extracting & downloading audio stream...");
+      } else if (stage === "transcribing") {
+        setStep("transcribe", job.demo ? "Segmenting transcript..." : "Transcribing speech with Whisper...");
+      } else if (stage === "synthesizing") {
+        setStep("generate", job.demo ? "Synthesizing template posts (Demo Mode)..." : "Generating with Gemini 2.0 Flash...");
+      }
     }
 
     if (job.status === "completed" || job.status === "failed") {
       return job;
     }
 
-    await new Promise((r) => setTimeout(r, 1500));
+    await new Promise((r) => setTimeout(r, 1200));
   }
   throw new Error("Job timed out while processing");
 }

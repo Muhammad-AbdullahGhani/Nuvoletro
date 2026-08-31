@@ -89,6 +89,7 @@ def run_job_sync(job_id: str) -> None:
         return
 
     job.status = JobStatus.processing
+    job.stage = "ingesting"
     save_job(job)
     logger.info(f"Processing job: {job_id}")
 
@@ -99,13 +100,18 @@ def run_job_sync(job_id: str) -> None:
         if source_media:
             job.source_media = source_media
         logger.info(f"Transcription complete: {job_id} ({len(text)} chars, {len(segments)} segments)")
+
+        job.stage = "synthesizing"
+        save_job(job)
         
         job.content_kit = build_content_kit(text, segments, niche=job.niche, language=job.language)
         job.status = JobStatus.completed
+        job.stage = "completed"
         job.demo = not settings.is_live
         logger.info(f"Job completed successfully: {job_id} (mode: {'live' if settings.is_live else 'demo'})")
     except Exception as exc:  # noqa: BLE001
         job.status = JobStatus.failed
+        job.stage = "failed"
         job.error = str(exc)
         logger.error(f"Job failed: {job_id} - {str(exc)}", exc_info=True)
 
@@ -115,17 +121,25 @@ def run_job_sync(job_id: str) -> None:
 def _resolve_input(job: JobResult) -> tuple[str, list, str | None]:
     transcript_path = UPLOAD_DIR / f"{job.job_id}-transcript.txt"
     if transcript_path.exists():
+        job.stage = "transcribing"
+        save_job(job)
         text = transcript_path.read_text(encoding="utf-8")
         t, segs = transcribe_text_paste(text)
         return t, segs, None
 
     if job.youtube_url and is_youtube_url(job.youtube_url):
+        job.stage = "ingesting"
+        save_job(job)
         media, title = download_youtube_audio(job.youtube_url, job.job_id, UPLOAD_DIR)
         job.filename = title
+        job.stage = "transcribing"
+        save_job(job)
         text, segments = transcribe_file(media, language=job.language or None)
         return text, segments, str(media)
 
     if job.source_media:
+        job.stage = "transcribing"
+        save_job(job)
         media = Path(job.source_media)
         text, segments = transcribe_file(media, language=job.language or None)
         return text, segments, str(media)
