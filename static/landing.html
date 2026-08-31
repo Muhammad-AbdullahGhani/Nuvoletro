@@ -2,75 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nuvoletro — Automated content repurposing</title>
-  <meta name="description" content="Extract YouTube audio, transcribe with Whisper, contextualize with RAG + Gemini, and generate LinkedIn and Instagram posts automatically." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuvoletro — Architecture & Product Overview</title>
+  <meta name="description" content="Extract YouTube audio, transcribe with Whisper, contextualize with Chroma RAG + Gemini, and generate LinkedIn and Instagram posts automatically." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css" />
   <link rel="stylesheet" href="/static/landing.css" />
 </head>
 <body>
+  <!-- Ambient background glow effects -->
+  <div class="glow-sphere glow-sphere-1"></div>
+  <div class="glow-sphere glow-sphere-2"></div>
+
   <nav class="lp-nav">
-    <span class="lp-logo">Nuvoletro</span>
+    <a href="/" class="brand-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Nuvoletro</span>
+    </a>
     <div class="lp-nav-links">
-      <a href="#stack">Stack</a>
-      <a href="#how">How it works</a>
-      <a class="btn lp-cta-sm" href="/">Open app</a>
+      <a href="#stack">Architecture</a>
+      <a href="#how">How It Works</a>
+      <a href="/docs" target="_blank">API Docs</a>
+      <a class="btn btn-primary lp-cta-sm" href="/">Open Studio</a>
     </div>
   </nav>
 
   <header class="lp-hero">
-    <p class="badge">Python · FastAPI · Whisper · Gemini · RAG · Chroma</p>
-    <h1>Turn YouTube videos into LinkedIn & Instagram posts</h1>
+    <p class="hero-pill">⚡ Enterprise Content Engine</p>
+    <h1>Turn 1 Long Video into <span class="gradient-text">Viral Multi-Platform Campaigns</span></h1>
     <p class="lp-sub">
       Nuvoletro automates the full repurposing pipeline: extract audio from YouTube,
       transcribe with OpenAI Whisper, retrieve platform playbooks via Chroma RAG,
-      and generate promotional posts with the Gemini API — no manual copy-paste workflow.
+      and generate promotional posts with Google Gemini 2.0 Flash — zero manual copy-paste.
     </p>
     <div class="lp-hero-cta">
-      <a class="btn lp-cta" href="/">Try the pipeline</a>
+      <a class="btn btn-primary lp-cta" href="/">
+        <span>🚀</span> Launch Repurposing Studio
+      </a>
+      <a class="btn btn-ghost lp-cta" href="https://github.com/Muhammad-AbdullahGhani/Nuvoletro" target="_blank">
+        <span>⭐</span> View on GitHub
+      </a>
     </div>
   </header>
 
   <section class="lp-section" id="stack">
-    <h2>Architecture</h2>
+    <h2>Production Stack & Core Architecture</h2>
     <ul class="lp-grid">
-      <li><strong>yt-dlp</strong><span>Automated audio extraction from YouTube URLs.</span></li>
-      <li><strong>OpenAI Whisper</strong><span>Full transcription with segment timestamps.</span></li>
-      <li><strong>Chroma Vector DB</strong><span>RAG retrieval of LinkedIn/Instagram playbooks.</span></li>
-      <li><strong>Gemini API</strong><span>Context-aware post generation.</span></li>
-      <li><strong>FastAPI workers</strong><span>Parallel job pool for concurrent requests.</span></li>
-      <li><strong>ffmpeg</strong><span>Optional 9:16 clip export for Reels.</span></li>
+      <li>
+        <strong>yt-dlp Engine</strong>
+        <span>High-speed automated YouTube audio & video stream extraction.</span>
+      </li>
+      <li>
+        <strong>OpenAI Whisper</strong>
+        <span>Millisecond-accurate speech-to-text with word segment timestamping.</span>
+      </li>
+      <li>
+        <strong>ChromaDB Vector Store</strong>
+        <span>Semantic RAG retrieval of high-converting platform copywriting playbooks.</span>
+      </li>
+      <li>
+        <strong>Google Gemini 2.0 Flash</strong>
+        <span>Contextual, platform-tailored post generation with JSON schema validation.</span>
+      </li>
+      <li>
+        <strong>FastAPI Worker Pool</strong>
+        <span>Parallel ThreadPoolExecutor job queues for high-throughput batch jobs.</span>
+      </li>
+      <li>
+        <strong>FFmpeg 9:16 Video Slicer</strong>
+        <span>Automated vertical cropping (1080x1920) for TikTok, Reels, and Shorts.</span>
+      </li>
     </ul>
   </section>
 
   <section class="lp-section" id="how">
-    <h2>Pipeline</h2>
+    <h2>How the Repurposing Pipeline Works</h2>
     <div class="lp-steps">
       <article class="lp-step">
         <span class="lp-step-num">1</span>
-        <h3>Input</h3>
-        <p>YouTube URL, file upload, or pasted transcript.</p>
+        <h3>Multi-Format Ingest</h3>
+        <p>Supply a YouTube URL, upload raw media files, or paste script notes.</p>
       </article>
       <article class="lp-step">
         <span class="lp-step-num">2</span>
-        <h3>Transcribe</h3>
-        <p>Whisper processes 100% of audio input without manual steps.</p>
+        <h3>Whisper Transcription</h3>
+        <p>Extracts audio and generates accurate timestamped segment transcriptions.</p>
       </article>
       <article class="lp-step">
         <span class="lp-step-num">3</span>
-        <h3>RAG + Generate</h3>
-        <p>Chroma retrieves platform context; Gemini writes LinkedIn and Instagram posts.</p>
+        <h3>Vector RAG & Gemini</h3>
+        <p>Matches platform copywriting playbooks in ChromaDB and synthesizes posts.</p>
+      </article>
+      <article class="lp-step">
+        <span class="lp-step-num">4</span>
+        <h3>Shorts Slicing & Exports</h3>
+        <p>Exports 9:16 vertical clips, timestamped SRT subtitles, and JSON Content Kits.</p>
       </article>
     </div>
   </section>
 
   <section class="lp-section lp-final">
-    <h2>Run the pipeline</h2>
-    <a class="btn lp-cta" href="/">Open Nuvoletro</a>
+    <h2>Ready to automate your content distribution?</h2>
+    <a class="btn btn-primary lp-cta" href="/">Open Nuvoletro Studio</a>
   </section>
 
-  <footer>
-    <p>Nuvoletro — automated content repurposing for English-speaking creators.</p>
+  <footer class="app-footer">
+    <p class="footer-text">Nuvoletro — Automated Content Repurposing Engine for English-speaking creators.</p>
   </footer>
 </body>
 </html>
